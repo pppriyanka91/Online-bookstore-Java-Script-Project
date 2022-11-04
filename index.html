@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sample Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body { padding-top: 50px; }
+
+    table { width: 100%; }
+  </style>
+</head>
+<body>
+  <script>
+    fetch('http://localhost:3000/books')
+.then(res => res.json())
+.then (data => {
+    const tableBody = document.getElementById("tablebody")
+    for (const book of data) {
+        tableBody.innerHTML += `
+            <tr>
+                <td>${book.name}</td>
+                <td>${book.gener}</td>
+                <td>${book.date}</td>
+                <td>${book.authour}</td>
+            </tr>
+        `
+    }
+})
+  </script>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Libaray!</h1>
+      <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>genre</th>
+                <th>date</th>
+                <th>author</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
