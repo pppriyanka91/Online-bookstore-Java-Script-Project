@@ -2,9 +2,9 @@ const mongoose= require('mongoose')
 
 const bookSchema = mongoose.Schema({
     name: String,
-    gener: String,
-    date: Date,
-    authour: String
+    author: String,
+    genre: String,
+    date: Date
 })
 
 const bookModel= mongoose.model('Book', bookSchema)
